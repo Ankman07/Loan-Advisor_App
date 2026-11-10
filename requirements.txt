@@ -1,0 +1,5 @@
+# Added as each stage needs it. Stage 1 (ML):
+pandas
+scikit-learn
+jupyter
+python-dotenv

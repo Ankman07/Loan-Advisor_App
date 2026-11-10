@@ -1,78 +1,34 @@
-# Loan Advisor
+# Loan Advisor (learning project)
 
-A simple web application for predicting loan eligibility using a pre-trained machine learning model.
+A from-scratch project to learn **ML models**, **RAG chatbots**, and **agents**,
+using loan eligibility as the running example.
 
-## Features
+The original Node/Express + Vite scaffold is preserved untouched in [`legacy/`](legacy/).
 
-- Form for inputting loan application details
-- Prediction of loan eligibility using a simplified model
-- Storage of loan applications in MongoDB
-- Clean, responsive UI using Tailwind CSS
+## Roadmap
 
-## Tech Stack
+1. **ML model** (`src/ml/`) - load a loan dataset, explore it in `notebooks/`, train and evaluate a classifier (scikit-learn), save it.
+2. **RAG chatbot** (`src/rag/`) - embed loan policy/FAQ documents, store them in a vector store, retrieve relevant chunks, answer questions with an LLM.
+3. **Agent** (`src/agents/`) - give an LLM tools (the eligibility model, the RAG retriever) and let it decide which to call.
+4. **Interface** - a small API/UI on top, once the pieces work.
 
-- **Backend**: Node.js, Express
-- **Frontend**: EJS, Tailwind CSS, Vanilla JavaScript
-- **Database**: MongoDB
-- **ML Model**: Simplified rule-based prediction (placeholder for actual ML model)
+## Layout
 
-## Setup Instructions
+```
+data/raw/     datasets (not committed)
+notebooks/    exploration
+src/ml/       model training + prediction
+src/rag/      ingestion, retrieval, chat
+src/agents/   tool-using agent
+tests/
+legacy/       previous code, kept for reference
+```
 
-### Prerequisites
+## Setup
 
-- Node.js (v14 or higher)
-- MongoDB (local or remote instance)
-
-### Installation
-
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd loan-advisor
-   ```
-
-2. Install dependencies:
-   ```
-   npm install
-   ```
-
-3. Create a `.env` file in the root directory with the following content:
-   ```
-   MONGODB_URI=mongodb://localhost:27017/loanAdvisor
-   PORT=3000
-   ```
-   
-   Adjust the MongoDB URI as needed for your setup.
-
-4. Start the application:
-   ```
-   npm start
-   ```
-
-   For development with auto-reload:
-   ```
-   npm run dev
-   ```
-
-5. Open your browser and navigate to `http://localhost:3000`
-
-## ML Model Integration
-
-The current implementation uses a simplified rule-based approach to simulate predictions. In a production environment, you would need to:
-
-1. Place your `model.pkl` and `scaler.pkl` files in the `/public` directory
-2. Update the `predictionService.js` to use actual model loading and prediction
-
-## Project Structure
-
-- `index.js` - Main Express application
-- `routes/` - API routes
-- `models/` - MongoDB schema definitions
-- `services/` - Business logic services
-- `views/` - EJS templates
-- `public/` - Static assets and client-side JavaScript
-- `utils/` - Utility functions
-
-## License
-
-MIT
+```
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env
+```

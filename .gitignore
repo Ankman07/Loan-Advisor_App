@@ -1,25 +1,23 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Secrets / local config
 .env
+.env.*
+!.env.example
+
+# Data & models (keep folders, not contents)
+data/raw/*
+!data/raw/.gitkeep
+models/
+*.pkl
+*.joblib
+vector_store/
+
+# OS / editor
+.DS_Store
+.vscode/*
+.idea
